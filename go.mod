@@ -1,4 +1,4 @@
-module github.com/mimoja/spdutil
+module github.com/mimoja/spdlib
 
 go 1.13
 
