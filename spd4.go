@@ -243,7 +243,6 @@ func ParseSPD4(spdBytes []byte) ParsedSPD {
 	}
 	pspd.Vendor = vendor
 
-
 	pspd.ModulePartNumber = string(pspd.Raw.ModuleManufactoringPartNR[:])
 	pspd.ModulePartNumber = strings.Trim(pspd.ModulePartNumber, "\000")
 	return pspd

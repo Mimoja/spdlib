@@ -1,5 +1,6 @@
 github.com/hillu/go-yara v1.1.0 h1:pNcmtnTGB89hV84Jh0+8GI/D7KabK8QFQlgUuhkoJUY=
 github.com/hillu/go-yara v1.1.0/go.mod h1:KLxCsvD3F8cgVK866UDHi961qbzP+twKjhNdDsuz/2M=
+github.com/hillu/go-yara v1.2.3-0.20200505204128-fd0f1d0aa191/go.mod h1:KLxCsvD3F8cgVK866UDHi961qbzP+twKjhNdDsuz/2M=
 github.com/sigurn/crc16 v0.0.0-20160107003519-da416fad5162 h1:2zlAtlrum6lg2lMiUWznq04fDudBDajMFl94Zyis67Y=
 github.com/sigurn/crc16 v0.0.0-20160107003519-da416fad5162/go.mod h1:9/etS5gpQq9BJsJMWg1wpLbfuSnkm8dPF6FdW2JXVhA=
 github.com/sigurn/utils v0.0.0-20190728110027-e1fefb11a144 h1:ccb8W1+mYuZvlpn/mJUMAbsFHTMCpcJBS78AsBQxNcY=

@@ -8,17 +8,17 @@ import (
 )
 
 func WriteSPD4(pspd ParsedSPD, filename string) {
-	file, err := os.OpenFile(filename+".spd.hex", os.O_CREATE | os.O_RDWR, os.ModePerm)
+	file, err := os.OpenFile(filename+".spd.hex", os.O_CREATE|os.O_RDWR, os.ModePerm)
 
 	if err != nil {
 		log.Fatal("Could not open file for writing")
 	}
-	defer 	file.Close()
+	defer file.Close()
 
 	file.WriteString(fmt.Sprintf("# TotalBytes: %d ; BytesUsed: %d\n", pspd.BytesTotal, pspd.BytesUsed))
 	file.WriteString(fmt.Sprintf("%02X\n", pspd.Raw.SPDStatus))
 
-	file.WriteString(fmt.Sprintf("# SPD Revision %X.%X\n", pspd.Revision >> 4, pspd.Revision & 0xF))
+	file.WriteString(fmt.Sprintf("# SPD Revision %X.%X\n", pspd.Revision>>4, pspd.Revision&0xF))
 	file.WriteString(fmt.Sprintf("%02X\n", pspd.Raw.SPDRevision))
 
 	file.WriteString(fmt.Sprintf("# DDR Ramtype: %s\n", pspd.RamType))
@@ -51,7 +51,7 @@ func WriteSPD4(pspd ParsedSPD, filename string) {
 	file.WriteString(fmt.Sprintf("%04X\n", pspd.Raw.ModuleManufactoringID))
 
 	file.WriteString(fmt.Sprintf("## Module Manufactoring Location and Date\n"))
-	file.WriteString(fmt.Sprintf("%02X %s", pspd.Raw.ModuleManufactoringLocation,Dump(
+	file.WriteString(fmt.Sprintf("%02X %s", pspd.Raw.ModuleManufactoringLocation, Dump(
 		pspd.Raw.ModuleManufactoringDate[:])))
 
 	file.WriteString(fmt.Sprintf("## Module Manufactoring Serial\n"))
@@ -79,7 +79,6 @@ func WriteSPD4(pspd ParsedSPD, filename string) {
 	file.WriteString(fmt.Sprintf("\n# EndUserProgrammable\n"))
 	file.WriteString(Dump(pspd.Raw.EndUserProgrammable[:]))
 
-
 	ioutil.WriteFile(filename+".spd.bin", pspd.RawBytes, os.ModePerm)
 
 	validityChecks := []bool{
@@ -100,17 +99,17 @@ func WriteSPD4(pspd ParsedSPD, filename string) {
 }
 
 func Dump(bs []byte) string {
-	dump := "";
-	pos := 1;
+	dump := ""
+	pos := 1
 	for _, b := range bs {
 		dump += fmt.Sprintf("%02X", b)
-		if pos > 15{
-			dump +="\n"
+		if pos > 15 {
+			dump += "\n"
 			pos = 0
 		} else {
 			dump += " "
 		}
-		pos++;
+		pos++
 	}
-	return dump +"\n";
+	return dump + "\n"
 }

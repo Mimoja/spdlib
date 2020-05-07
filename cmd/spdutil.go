@@ -9,7 +9,6 @@ import (
 	"path/filepath"
 )
 
-
 func main() {
 
 	outputFolder := flag.String("o", ".", "Output folder")
