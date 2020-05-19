@@ -36,7 +36,7 @@ type SPDMatch struct {
 func FindSPDs(bs []byte) (spds []SPDMatch) {
 	setupYara()
 
-	matches, err := yaraRules.ScanMem(bs, 0, 0, nil)
+	matches, err := yaraRules.ScanMem(bs, 0, 0)
 	if err != nil {
 		log.Fatal("could not scan with yara %v\n", err)
 		return
